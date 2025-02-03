@@ -1,17 +1,16 @@
-import * as yup from "yup"
-export const REGISTRATION_SCHEMA = yup.object().shape({
-  firstName:yup.string().required("First name is required").min(3,"First name must be at least 3 characters long").max(50, "First name cannot exceed 50 characters"),
-  lastName:yup.string().required("Last name is required").min(3,"First name must be at least 3 characters long").max(50, "First name cannot exceed 50 characters"),
-  email:yup.string().email("Invalid email address").required("Email is required"),
-  mobile:yup.string().required("Phone number is required")
-  .matches(/^[0-9]+$/, "Phone number must be numeric")
-  .min(11, "Phone number must be at least 10 digits"),
-  photo:yup.string(),
-  password:yup.string().required("Password is required").min(6,"Password must be at least 6 characters log")
-})
-export const LOGIN_SCHEMA = yup.object().shape({
-  email:yup.string().email("Invalid email address").required("Email is required"),
-  password: yup
+import * as Yup from 'yup';
+
+export const REGISTRATION_SCHEMA = Yup.object({
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  email: Yup.string().email("Invalid email format").required("Email is required"),
+  mobile: Yup.string().required("Mobile number is required"),
+  photo: Yup.string().optional(), // photo ফিল্ডটি optional বা nullable
+  password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+});
+export const LOGIN_SCHEMA = Yup.object().shape({
+  email:Yup.string().email("Invalid email address").required("Email is required"),
+  password: Yup
   .string()
   .required("Password is required")
   .min(8, "Password must be at least 8 characters long"),

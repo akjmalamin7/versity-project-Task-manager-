@@ -1,10 +1,10 @@
 export interface UserSchema {
-  firstName:string;
-  lastName:string;
-  email:string;
-  mobile:string;
-  photo:string;
-  password:string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobile: string;
+  photo?: string;  // `photo` কে optional করা হয়েছে
+  password: string;
 }
 export interface LoginData{
   email:string;

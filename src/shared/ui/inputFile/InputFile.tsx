@@ -1,15 +1,31 @@
-import { forwardRef } from "react";
+import { ChangeEvent, FocusEvent, KeyboardEvent, forwardRef } from "react";
 import Text from "../text";
-import { InputProps } from "./input.model";
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+// InputProps টাইপ গুলি এখানে রাখা হলো
+export interface InputProps {
+  label?: string;
+  name?: string;
+  value?: string;
+  type?: "text" | "email" | "password" | "number" | "file";
+  placeholder?: string;
+  size?: "sm" | "md" | "lg";
+  isLoading?: boolean;
+  className?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+  onClear?: () => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
+}
+
+const InputFile = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       label,
       name,
       value,
-      type = "text",
-      placeholder = "",
+      placeholder = "Choose file",
       isLoading = false,
       className = "",
       onChange,
@@ -32,8 +48,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <input
             id={name}
             name={name}
+            type="file"
             value={value}
-            type={type}
             placeholder={placeholder}
             disabled={isLoading}
             onChange={onChange}
@@ -60,6 +76,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+InputFile.displayName = "InputFile";
 
-export default Input;
+export default InputFile;

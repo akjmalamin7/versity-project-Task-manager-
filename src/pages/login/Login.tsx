@@ -1,5 +1,6 @@
 import AuthBanner from "@/components/common/authBanner/AuthBanner";
 import AuthFrame from "@/components/common/authFrame";
+import LoginForm from "@/components/pages/login";
 
 const Login = () => {
   return (
@@ -11,7 +12,7 @@ const Login = () => {
 
       {/* Right Side */}
       <AuthFrame formTitle="Login">
-        {/* <LoginForm /> */}
+      <LoginForm/>
       </AuthFrame>
     </div>
   );

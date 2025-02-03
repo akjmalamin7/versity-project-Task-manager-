@@ -1,3 +1,5 @@
+import Button from "@/shared/ui/button";
+import Text from "@/shared/ui/text";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 type ActiveFormType = "login" | "registration";
@@ -39,64 +41,52 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
           {/* Buttons */}
           <div className="flex">
             {/* Login Button */}
-            <button
-              // variant={activeForm === "login" ? "primary" : "tertiary"}
-              // size="size-5"
-              // width="full"
-              // customClass="font-regular"
+            <Button
+              className="rounded-tr-none rounded-br-none"
+              width="full"
+              variant={activeForm === "login" ? "fill" : "outline"}
               onClick={() => handleActiveForm("login")}
+              size="size-5"
             >
-              {/* <GenericText
-                size="xlg"
-                fontWeight="regular"
-                color={activeForm === "login" ? "text-1" : "text-5"}
-              >
-                Login
-              </GenericText> */}
               Login
-            </button>
+            </Button>
 
             {/* Registration Button */}
-            <button
-              // variant={activeForm === "registration" ? "primary" : "tertiary"}
-              // size="size-5"
-              // width="full"
-              // customClass="font-regular"
+            <Button
+              className="rounded-tl-none rounded-bl-none"
+              size="size-5"
+              width="full"
+              variant={activeForm === "registration" ? "fill" : "outline"}
               onClick={() => handleActiveForm("registration")}
             >
-              {/* <GenericText
-                size="xlg"
-                fontWeight="regular"
-                color={activeForm === "registration" ? "text-1" : "text-5"}
-              >
-                Registration
-              </GenericText> */}
               Registration
-            </button>
+            </Button>
           </div>
         </div>
         <div>
           {/* title */}
           <div className="mt-[20px] lg:mt-[30px]">
-            {/* <GenericText elementType="h1" size="9xl" color="text-5" fontWeight="bold">
+            <Text size="2xl" element="h1" fontWeight="semiBold">
               {formTitle}
-            </GenericText> */}
-            <h3>{formTitle}</h3>
+            </Text>
           </div>
           {/* Children */}
           {children}
         </div>
         <div>
-        <div className="flex flex-col items-center mt-[16px] lg:mt-[30px] mb-[16px] lg:mb-[20px] gap-[8px]">
-          <p >
-          Need to create a account? <Link className="text-customcolor-750" to={activeForm === "login" ?"/registration":"/login"}>{activeForm === 'login'?"Sign Up":"Sign in"}</Link>
-          </p>
-        <p  >Or</p>
+          <div className="flex flex-col items-center mt-[16px] lg:mt-[30px] mb-[16px] lg:mb-[20px] gap-[8px]">
+            <p>
+              Need to create a account?{" "}
+              <Link
+                className="text-customcolor-750"
+                to={activeForm === "login" ? "/registration" : "/login"}
+              >
+                {activeForm === "login" ? "Sign Up" : "Sign in"}
+              </Link>
+            </p>
+          </div>
         </div>
-        </div>
-        <div className="flex flex-col md:flex-row  gap-[12px] md:gap-[28px]">
-      
-        </div>
+        <div className="flex flex-col md:flex-row  gap-[12px] md:gap-[28px]"></div>
       </div>
     </div>
   );

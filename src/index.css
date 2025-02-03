@@ -1,1 +1,32 @@
 @import "tailwindcss";
+body{
+  font-family: "Sora", serif;
+  background-color: #f8f8fb;
+}
+
+@theme {
+  --color-100: #ffffff;
+  --color-150: #F8F8FB;
+  --color-200: #e5eefa;
+  --color-250: #DBE9FD;
+  --color-300: #74788D;
+  --color-350: #D9D9D9;
+  --color-400: #E1E1E1;
+  --color-450: #516986;
+  --color-500: #1B283A;
+  --color-550: #516986;
+  --color-600: #253642;
+  --color-650: #1E266D;
+  --color-700: #CCE0FF;
+  --color-750: #0052CC;
+  --color-800: #0052CC;
+  --color-850: #0052cc0f;
+  --color-900: #0052CC;
+  --color-950: #00AF70;
+  --color-1000: #00AF70;
+  --color-1050: #00AF70;
+  --color-1100: #00AF70;
+  --color-1150: #0052cc1a;
+  --color-1200: #0052cc1a;
+  --color-1250: #f1b44c;
+}
