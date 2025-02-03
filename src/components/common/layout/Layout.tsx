@@ -7,7 +7,7 @@ import Sidebar from "../sidebar";
 const Layout = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.sidebar.isToggle);
   return (
-    <div className=" bg-gray-900">
+    <div >
       <header className="h-[55px] lg:h-[63px] w-[100%] bg-gray-800  fixed left-0 top-0 z-30 flex items-center border-b border-b-gray-700">
         <Header />
       </header>

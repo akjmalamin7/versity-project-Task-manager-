@@ -1,7 +1,7 @@
 @import "tailwindcss";
 body {
   font-family: "Sora", serif;
-  background-color: #f8f8fb;
+  background-color: oklch(0.21 0.034 264.665)
 }
 
 @theme {

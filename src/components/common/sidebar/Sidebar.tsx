@@ -2,6 +2,7 @@ import CrossIcon from "@/assets/icons/crossIcon"
 import { sidebarToggle } from "@/redux/features/sidebar/slidebarSlice"
 import Button from "@/shared/ui/button"
 import { useDispatch } from "react-redux"
+import SidebarNav from "../sidebarNav"
 
 const Sidebar = () => {
   const dispatch = useDispatch()
@@ -15,6 +16,7 @@ const Sidebar = () => {
           <CrossIcon color="light" />
         </Button>
       </div>
+      <SidebarNav/>
     </div>
   )
 }
