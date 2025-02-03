@@ -34,7 +34,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col gap-[12px] lg:gap-[16px] mt-[20px]">
         <div>
-          <Input {...register("email")} className="border-[#D6D6D6]" placeholder="Email Address" />
+          <Input {...register("email")} type="email" className="border-[#D6D6D6]" placeholder="Email Address" />
           {errors.email && (
             <Text size="sm" className="text-red-500">
               {errors.email.message}
@@ -42,7 +42,7 @@ const LoginForm = () => {
           )}
         </div>
         <div>
-          <Input {...register("password")} className="border-[#D6D6D6]" placeholder="Password" />
+          <Input {...register("password")} className="border-[#D6D6D6]" placeholder="Password" type="password"/>
           {errors.password && (
             <Text size="sm" className="text-red-500">
               {errors.password.message}

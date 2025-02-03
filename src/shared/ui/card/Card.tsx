@@ -5,7 +5,7 @@ interface CardProps {
   children?: React.ReactNode;
   padding?: "xs" | "sm" | "md" | "lg" | "xlg" | "2xl" | "none";
   bgColor?: "dark" | "white";
-  radius?: "sm" | "md";
+  radius?: "sm" | "md"|"lg";
   className?: string;
   cardStyle?: "border" | "shadow";
 }
@@ -21,7 +21,8 @@ const bgColors: Record<string, string> = {
 };
 const radiuses: Record<string, string> = {
   sm: "rounded-[8px]",
-  md: "rounded-[24px]",
+  md: "rounded-[12px]",
+  lg: "rounded-[16px]",
 };
 const Card = ({
   cardStyle = "shadow",
@@ -43,7 +44,7 @@ const Card = ({
   const cardBgColors = bgColors[bgColor] || "";
   const cardRadius = radiuses[radius] || "";
   const customCardStyles = cardStyles[cardStyle] || "";
-  const finalClassName = `${customCardStyles} ${paddings} ${cardBgColors} ${cardRadius} overflow-hidden ${className}`;
+  const finalClassName = `card ${customCardStyles} ${paddings} ${cardBgColors} ${cardRadius} overflow-hidden ${className}`;
   return (
     <div className={finalClassName}>
      {children}

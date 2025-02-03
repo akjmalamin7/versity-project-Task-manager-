@@ -9,6 +9,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       name,
       value,
       type = "text",
+      size = "lg",
+      radius="sm",
+      color="dark",
       placeholder = "",
       isLoading = false,
       className = "",
@@ -21,6 +24,21 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const colorClasses = {
+      dark: "text-gray-900",
+      light: "h-[30px] xl:h-[38px] text-[14px]",
+    }[color];
+    const sizeClasses = {
+      sm: "h-[30px] xl:h-[38px] text-[14px]",
+      md: "h-[36px] xl:h-[44px] text-[14px]",
+      lg: "h-[40px] xl:h-[50px] text-[14px]",
+    }[size];
+    const roundClasses = {
+      sm: "rounded-[8px]",
+      md: "rounded-[10px]",
+      lg: "rounded-[12px]",
+    }[radius];
+    const finalInputClasses = `border border-gray-500  w-full px-[15px] text-gray-100  outline-none ${roundClasses} ${sizeClasses} ${colorClasses} ${className}`;
     return (
       <div className="w-full">
         {label && (
@@ -42,7 +60,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             onFocus={onFocus}
             onKeyDown={onKeyDown}
             ref={ref}
-            className={`h-[40px] xl:h-[50px] border border-[#74788D] rounded-[4px] w-full px-[15px] text-[#74788D] text-14 outline-none ${className}`}
+            className={finalInputClasses}
           />
           {onClear && (
             <button

@@ -5,6 +5,8 @@ export interface InputProps {
   name?: string;
   value?: string;
   type?: "text" | "email" | "password" | "number"|"file";
+  radius?:"sm"|"md"|"lg";
+  color?:"dark"|"light";
   placeholder?: string;
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;

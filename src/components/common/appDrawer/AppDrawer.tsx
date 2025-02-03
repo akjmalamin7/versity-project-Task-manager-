@@ -14,7 +14,7 @@ const {handleLogout} = useLoggedOut()
         </Text>
       </Card.CardHeader>
       <Card.CardBody>
-        <Button variant="text" className=" h-auto md:h-auto py-0" width="full" onClick={handleLogout}>
+        <Button variant="text" className=" h-auto md:h-auto py-0 lg:cursor-pointer" width="full" onClick={handleLogout}>
           <Text size="md" color="white">
             Log out
           </Text>

@@ -95,7 +95,6 @@ body {
 }
 
 @media (min-width: 1024px) {
-  button,
   a {
     cursor: pointer;
   }
