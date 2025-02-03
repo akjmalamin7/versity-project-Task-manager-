@@ -12,7 +12,7 @@ import AppDrawer from "../appDrawer";
 const Header = () => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   // ?@_______ get user@
-  const userAvatar = useSelector((state:RootState) => state?.auth?.user?.photo);
+  const user = useSelector((state:RootState) => state?.auth?.user);
   const [visible, setVisible] = useState(false);
   // ?@_______ sidebar visible _____@
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const Header = () => {
         </div>
       </div>
       <div className="relative">
-        <Avatar url={userAvatar || ""} name="Akjm Al-Amin" onClick={handleVisible} />
+        <Avatar url={user?.photo || ""} name={user?.firstName} onClick={handleVisible} />
         {visible && (
           <div className="absolute right-0 top-[50px] lg:top-[53px]" ref={dropdownRef}>
             <AppDrawer />

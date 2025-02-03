@@ -1,7 +1,13 @@
+import Text from "../text";
 
-const Message = () => {
+interface Props{
+  message?:string;
+}
+const Message = ({message}:Props) => {
   return (
-    <div>Message</div>
+    <div>
+      <Text element="h3">{message}</Text>
+    </div>
   )
 }
 
