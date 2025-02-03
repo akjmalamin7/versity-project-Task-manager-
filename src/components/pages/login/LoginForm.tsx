@@ -1,5 +1,6 @@
 import { LOGIN_SCHEMA } from "@/redux/features/auth/auth.schema";
 import { LoginData } from "@/redux/features/auth/auth.types";
+import { useLoginMutation } from "@/redux/features/auth/authApi";
 import Button from "@/shared/ui/button";
 import Input from "@/shared/ui/input";
 import Text from "@/shared/ui/text";
@@ -19,14 +20,15 @@ const LoginForm = () => {
       password: "",
     },
   });
+  const [login, {isLoading}] = useLoginMutation()
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
     console.log(data);
-    // try {
-    //   await login(data).unwrap();
-    //   navigate("/packages");
-    // } catch (err) {
-    //   console.error("Registration failed:", err);
-    // }
+    try {
+      await login(data).unwrap();
+      navigate("/");
+    } catch (err) {
+      console.error("Registration failed:", err);
+    }
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -49,12 +51,14 @@ const LoginForm = () => {
         </div>
         <div>
           <Text className="text-md text-[#4E4B66]">
-            <Link to={"#"}>Forgot Password</Link>
+            <Link className="text-[#54525f]" to={"#"}>Forgot Password</Link>
           </Text>
         </div>
         <div>
-          <Button disabled={!isValid} type="submit" size="size-5" variant="fill" width="full">
-            Login In
+          <Button loading={isLoading} disabled={!isValid} type="submit" size="size-5" variant="fill" width="full">
+          {
+            isLoading === true ? "Submitting..." :"Login"
+          }
           </Button>
         </div>
       </div>

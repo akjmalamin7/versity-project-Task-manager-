@@ -1,5 +1,6 @@
 import { REGISTRATION_SCHEMA } from "@/redux/features/auth/auth.schema";
 import { UserSchema } from "@/redux/features/auth/auth.types";
+import { useRegistrationMutation } from "@/redux/features/auth/authApi";
 import Button from "@/shared/ui/button";
 import Input from "@/shared/ui/input";
 import InputFile from "@/shared/ui/inputFile/InputFile";
@@ -25,15 +26,15 @@ const RegistrationForm = () => {
       password: "",
     },
   });
-
+const [registration,{isLoading}] = useRegistrationMutation()
   const onSubmit: SubmitHandler<UserSchema> = async (data) => {
     console.log(data);
-    // try {
-    //   await login(data).unwrap();
-    //   navigate("/packages");
-    // } catch (err) {
-    //   console.error("Registration failed:", err);
-    // }
+    try {
+      await registration(data).unwrap();
+      navigate("/login");
+    } catch (err) {
+      console.error("Registration failed:", err);
+    }
   };
 
   return (
@@ -94,8 +95,8 @@ const RegistrationForm = () => {
         </div>
 
         <div>
-          <Button disabled={!isValid} type="submit" size="size-5" variant="fill" width="full">
-            Registration
+          <Button loading={isLoading} disabled={!isValid} type="submit" size="size-5" variant="fill" width="full">
+            {isLoading === true?"Submitting...":"Registration"}
           </Button>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import Button from "@/shared/ui/button";
 import Text from "@/shared/ui/text";
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 type ActiveFormType = "login" | "registration";
 interface AuthFrameProps {
   formTitle?: string;
@@ -30,12 +30,12 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
     }
   };
   return (
-    <div className="flex w-full pt-[40px]">
+    <div className="flex w-full pt-[40px] items-center">
       <div className="max-w-[448px] w-full mx-auto px-[20px]">
         {/* Logo */}
         <div>
-          <div className="flex justify-center lg:justify-end mb-6">
-            <h2>Task Manager</h2>
+          <div className="flex justify-center  mb-[30px]">
+            <Text element="h1" size="2xl" fontWeight="medium" textAlign="center" >Task Manager</Text>
           </div>
 
           {/* Buttons */}
@@ -66,7 +66,7 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
         <div>
           {/* title */}
           <div className="mt-[20px] lg:mt-[30px]">
-            <Text size="2xl" element="h1" fontWeight="semiBold">
+            <Text size="xl" element="h2" fontWeight="semiBold">
               {formTitle}
             </Text>
           </div>
@@ -75,18 +75,11 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
         </div>
         <div>
           <div className="flex flex-col items-center mt-[16px] lg:mt-[30px] mb-[16px] lg:mb-[20px] gap-[8px]">
-            <p>
-              Need to create a account?{" "}
-              <Link
-                className="text-customcolor-750"
-                to={activeForm === "login" ? "/registration" : "/login"}
-              >
-                {activeForm === "login" ? "Sign Up" : "Sign in"}
-              </Link>
-            </p>
+            <Text color="secondary">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis hic iusto, 
+            </Text>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row  gap-[12px] md:gap-[28px]"></div>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
 import authSliceReducer from "@/redux/features/auth/authSlice";
+import sidebarReducer from "@/redux/features/sidebar/slidebarSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "../features/api/apiSlice";
 export const store =configureStore({
   reducer:{
     [apiSlice.reducerPath]:apiSlice.reducer,
-    auth: authSliceReducer
+    auth: authSliceReducer,
+    sidebar:sidebarReducer,
   },
   middleware:(getDefaultMiddlewares)=> getDefaultMiddlewares().concat(apiSlice.middleware)
 })
