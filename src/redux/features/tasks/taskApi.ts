@@ -41,6 +41,30 @@ export const taskApi = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    deleteTask: builder.mutation({
+      query: (id) => ({
+        url: `/task/:${id}`,
+        method: "DELETE",
+      }),
+    }),
+    viewTask: builder.query({
+      query: (id) => ({
+        url: `/tasks/view/:${id}`,
+        method: "GET",
+      }),
+    }),
+    updateTaskByStatus: builder.mutation({
+      query: ({id,status}) => ({
+        url: `/tasks/view/:${id}/${status}`,
+        method: "PUT",
+      }),
+    }),
+    taskCount: builder.query({
+      query: () => ({
+        url: `/tasks/status-count`,
+        method: "PUT",
+      }),
+    }),
   }),
 });
 export const {
@@ -50,4 +74,8 @@ export const {
   useGetCompletedTaskQuery,
   useGetInProgressTaskQuery,
   useGetNewTaskQuery,
+  useDeleteTaskMutation,
+  useViewTaskQuery,
+  useUpdateTaskByStatusMutation,
+  useTaskCountQuery
 } = taskApi;
