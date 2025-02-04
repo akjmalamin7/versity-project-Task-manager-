@@ -5,3 +5,7 @@ export interface TaskModel{
   status?:string;
   createdDate?:string;
 }
+export interface TaskCount{
+  _id:string;
+  count:number;
+}

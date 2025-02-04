@@ -69,7 +69,7 @@ export const taskApi = apiSlice.injectEndpoints({
     taskCount: builder.query({
       query: () => ({
         url: `/tasks/status-count`,
-        method: "PUT",
+        method: "GET",
       }),
     }),
   }),
