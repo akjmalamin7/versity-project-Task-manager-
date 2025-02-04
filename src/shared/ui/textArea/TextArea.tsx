@@ -1,14 +1,13 @@
 import { forwardRef } from "react";
 import Text from "../text";
-import { InputProps } from "./input.model";
+import { InputProps } from "./textarea.model";
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
   (
     {
       label,
       name,
       value,
-      type = "text",
       size = "lg",
       radius="sm",
       color="dark",
@@ -30,8 +29,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       light: "h-[30px] xl:h-[38px] text-[14px]",
     }[color];
     const sizeClasses = {
-      sm: "h-[30px] xl:h-[38px] text-[14px]",
-      md: "h-[36px] xl:h-[44px] text-[14px]",
+      sm: "h-[80px] xl:h-[100px] text-[14px]",
+      md: "h-[100px] xl:h-[120px] text-[14px]",
       lg: "h-[40px] xl:h-[50px] text-[14px]",
     }[size];
     const roundClasses = {
@@ -44,7 +43,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       light: "bg-[#f7f7f708]",
       transparent: "",
     }[bgColor];
-    const finalInputClasses = `border border-gray-500  w-full px-[15px] text-gray-100  outline-none ${roundClasses} ${sizeClasses} ${bgClasses} ${colorClasses} ${className}`;
+    const finalInputClasses = `border border-gray-500  w-full p-[15px] text-gray-100  outline-none ${roundClasses} ${sizeClasses} ${bgClasses} ${colorClasses} ${className}`;
     return (
       <div className="w-full">
         {label && (
@@ -53,11 +52,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </Text>
         )}
         <div className="relative w-full">
-          <input
+          <textarea
             id={name}
             name={name}
             value={value}
-            type={type}
             placeholder={placeholder}
             disabled={isLoading}
             onChange={onChange}
@@ -84,6 +82,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+TextArea.displayName = "TextArea";
 
-export default Input;
+export default TextArea;
