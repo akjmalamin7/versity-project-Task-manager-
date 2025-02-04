@@ -13,8 +13,8 @@ const LazyCreateTask = lazy(() => import("@/pages/createTask/CreateTask"));
 const LazyAllTask = lazy(() => import("@/pages/allTask/AllTask"));
 const LazyNewTask = lazy(() => import("@/pages/newTask/NewTask"));
 const LazyInProgressTask = lazy(() => import("@/pages/inProgressTask/InProgressTask"));
-const LazyCompletedTask = lazy(() => import("@/pages/CompletedTask/CompletedTask"));
-const LazyCanceledTask = lazy(() => import("@/pages/CanceledTask/CanceledTask"));
+const LazyCompletedTask = lazy(() => import("@/pages/completedTask/CompletedTask"));
+const LazyCanceledTask = lazy(() => import("@/pages/canceledTask/CanceledTask"));
 
 
 const ErrorFallback = () => <div>Something went wrong. Page not found.</div>;
@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/profile",
-            element: <LazyProfile />,
+            element: <Suspense fallback={<Loader/>}><LazyProfile /></Suspense>,
           },
           {
             path: "/create",
@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/all",
-            element: <LazyAllTask />,
+            element: <Suspense fallback={<Loader/>}><LazyAllTask /></Suspense>,
           },
           {
             path: "/new",
