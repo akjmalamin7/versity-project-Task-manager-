@@ -10,6 +10,13 @@ export const taskApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    updateTask: builder.mutation({
+      query: ({id,data}) => ({
+        url: `/tasks/:${id}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
     getAllTask: builder.query<{ data: TaskModel[] }, void>({
       query: () => ({
         url: "/tasks/list",
