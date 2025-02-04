@@ -32,7 +32,7 @@ const Header = () => {
             <HamburgerIcon />
           </Button>
         </div>
-        <div className="xl:w-[235px] flex xl:justify-center">
+        <div className="xl:w-[235px] flex xl:justify-start">
           <Text color="white" fontWeight="bold" size="lg" >
             <Link to={"/"} className="bg-gray-900 py-[8px] px-[10px] rounded-[5px] ">MY TASK</Link>
           </Text>

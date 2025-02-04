@@ -1,5 +1,5 @@
 import Layout from "@/components/common/layout";
-import { LazyLoader } from "@/shared/ui/lazyLoader";
+import Loader from "@/shared/ui/loader";
 import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoutes from "./PrivateRoutes";
@@ -10,13 +10,12 @@ const LazyNotFound = lazy(() => import("@/pages/notFound/NotFound"));
 const LazyDashboard = lazy(() => import("@/pages/dashboard/Dashboard"));
 const LazyProfile = lazy(() => import("@/pages/profile/Profile"));
 
-
 const ErrorFallback = () => <div>Something went wrong. Page not found.</div>;
 export const router = createBrowserRouter([
   // !@_______ public route ______@
   {
     element: (
-      <Suspense fallback="Loading...">
+      <Suspense fallback={<Loader />}>
         <PublicRoutes />
       </Suspense>
     ),
@@ -39,14 +38,14 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Suspense fallback={<LazyLoader/>}>
-        <Layout />
-      </Suspense>
+      <Layout />
     ),
     errorElement: <ErrorFallback />,
     children: [
       {
-        element: <PrivateRoutes />,
+        element: (
+          <PrivateRoutes />
+        ),
         children: [
           {
             path: "/",
