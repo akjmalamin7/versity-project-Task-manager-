@@ -15,11 +15,11 @@ const Tag = ({ tag }: TagProps) => {
     }
     break;
     case "completed":{
-      content = <Text className="bg-green-600 px-[8px] py-[1px] rounded-[20px]" color="white">{tag}</Text>
+      content = <Text className="bg-green-700 px-[8px] py-[1px] rounded-[20px]" color="white">{tag}</Text>
     }
     break;
     case "canceled":{
-      content = <Text className="bg-red-600 px-[8px] py-[1px] rounded-[20px]" color="white">{tag}</Text>
+      content = <Text className="bg-red-700 px-[8px] py-[1px] rounded-[20px]" color="white">{tag}</Text>
     }
     break;
     default:{
