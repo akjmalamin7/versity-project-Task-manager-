@@ -9,6 +9,13 @@ const LazyRegistration = lazy(() => import("@/pages/registration/Registration"))
 const LazyNotFound = lazy(() => import("@/pages/notFound/NotFound"));
 const LazyDashboard = lazy(() => import("@/pages/dashboard/Dashboard"));
 const LazyProfile = lazy(() => import("@/pages/profile/Profile"));
+const LazyCreateTask = lazy(() => import("@/pages/createTask/CreateTask"));
+const LazyAllTask = lazy(() => import("@/pages/allTask/AllTask"));
+const LazyNewTask = lazy(() => import("@/pages/newTask/NewTask"));
+const LazyInProgressTask = lazy(() => import("@/pages/inProgressTask/InProgressTask"));
+const LazyCompletedTask = lazy(() => import("@/pages/CompletedTask/CompletedTask"));
+const LazyCanceledTask = lazy(() => import("@/pages/CanceledTask/CanceledTask"));
+
 
 const ErrorFallback = () => <div>Something went wrong. Page not found.</div>;
 export const router = createBrowserRouter([
@@ -54,6 +61,30 @@ export const router = createBrowserRouter([
           {
             path: "/profile",
             element: <LazyProfile />,
+          },
+          {
+            path: "/create",
+            element: <LazyCreateTask />,
+          },
+          {
+            path: "/all",
+            element: <LazyAllTask />,
+          },
+          {
+            path: "/new",
+            element: <LazyNewTask />,
+          },
+          {
+            path: "/progress",
+            element: <LazyInProgressTask />,
+          },
+          {
+            path: "/completed",
+            element: <LazyCompletedTask />,
+          },
+          {
+            path: "/canceled",
+            element: <LazyCanceledTask />,
           },
           {
             path: "*",

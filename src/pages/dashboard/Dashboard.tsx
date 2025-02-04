@@ -1,7 +1,8 @@
+import Container from "@/components/common/container/Container"
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <Container width="md">Dashboard</Container>
   )
 }
 

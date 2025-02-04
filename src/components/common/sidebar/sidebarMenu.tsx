@@ -1,4 +1,10 @@
+import { AllTaskIcon } from "@/assets/icons/allTaskIcon";
+import CanceledIcon from "@/assets/icons/canceledIcon";
+import CompletedIcon from "@/assets/icons/completedIcon";
+import CreateIcon from "@/assets/icons/createIcon";
 import HomeIcon from "@/assets/icons/homeIcon/HomeIcon";
+import NewTaskIcon from "@/assets/icons/newTaskIcon";
+import ProgressIcon from "@/assets/icons/progresIcon";
 import React from "react";
 
 export interface SidebarMenuProps {
@@ -18,37 +24,37 @@ export const SIDEBAR_MENU_DATA: SidebarMenuProps[] = [
   {
     _id: "2",
     title: "Create New",
-    icon: <HomeIcon />,
+    icon: <CreateIcon />,
     path: "/create",
   },
   {
     _id: "3",
     title: "All Task",
-    icon: <HomeIcon />,
+    icon: <AllTaskIcon />,
     path: "/all",
   },
   {
     _id: "4",
     title: "New Task",
-    icon: <HomeIcon />,
+    icon: <NewTaskIcon />,
     path: "/new",
   },
   {
     _id: "5",
     title: "In Progress",
-    icon: <HomeIcon />,
+    icon: <ProgressIcon />,
     path: "/progress",
   },
   {
     _id: "6",
     title: "Completed",
-    icon: <HomeIcon />,
+    icon: <CompletedIcon />,
     path: "/completed",
   },
   {
     _id: "7",
     title: "Canceled",
-    icon: <HomeIcon />,
+    icon: <CanceledIcon />,
     path: "/canceled",
   },
 ];

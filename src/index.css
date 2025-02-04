@@ -3,7 +3,20 @@ body {
   font-family: "Sora", serif;
   background-color: oklch(0.21 0.034 264.665)
 }
-
+.menu_link{}
+.menu_link:hover .icon_style svg{
+  path{
+    fill:#ffffff
+  }
+}
+.icon_style{}
+.icon_style svg{
+  width: 25px;
+  height: 25px;
+  path{
+    transition: all .2s ease-in-out;
+  }
+}
 @theme {
   --color-100: #ffffff;
   --color-150: #f8f8fb;
