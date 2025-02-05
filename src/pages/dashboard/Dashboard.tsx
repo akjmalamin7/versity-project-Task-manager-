@@ -1,8 +1,8 @@
 import AnalyticsCard from "@/components/common/analyticsCard";
 import Container from "@/components/common/container/Container";
 import PageHeader from "@/components/common/pageHeader";
-import { TaskCount } from "@/redux/features/tasks/task.models";
-import { useTaskCountQuery } from "@/redux/features/tasks/taskApi";
+import { TaskCount } from "@/shared/redux/features/tasks/task.models";
+import { useTaskCountQuery } from "@/shared/redux/features/tasks/taskApi";
 import Card from "@/shared/ui/card";
 import Loader from "@/shared/ui/loader";
 import Message from "@/shared/ui/message";

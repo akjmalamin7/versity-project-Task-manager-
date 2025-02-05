@@ -1,4 +1,4 @@
-import { TaskCount } from "@/redux/features/tasks/task.models";
+import { TaskCount } from "@/shared/redux/features/tasks/task.models";
 import Card from "@/shared/ui/card";
 import Text from "@/shared/ui/text";
 

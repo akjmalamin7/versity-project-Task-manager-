@@ -1,4 +1,4 @@
-import useLoggedOut from "@/hooks/useLoggedOut";
+import useLoggedOut from "@/shared/hooks/useLoggedOut";
 import Button from "@/shared/ui/button";
 import Card from "@/shared/ui/card";
 import Text from "@/shared/ui/text";

@@ -1,6 +1,6 @@
-import authSliceReducer from "@/redux/features/auth/authSlice";
-import profileReducer from "@/redux/features/profile/profileSlice";
-import sidebarReducer from "@/redux/features/sidebar/slidebarSlice";
+import authSliceReducer from "@/shared/redux/features/auth/authSlice";
+import profileReducer from "@/shared/redux/features/profile/profileSlice";
+import sidebarReducer from "@/shared/redux/features/sidebar/slidebarSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "../features/api/apiSlice";
 export const store =configureStore({

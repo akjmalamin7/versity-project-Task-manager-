@@ -1,4 +1,4 @@
-import { RootState } from "@/redux/store/store";
+import { RootState } from "@/shared/redux/store/store";
 import { useSelector } from "react-redux";
 export default function useAuth(){
   const auth = useSelector((state: RootState) => state.auth);

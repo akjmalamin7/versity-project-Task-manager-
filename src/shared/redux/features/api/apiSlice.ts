@@ -1,5 +1,5 @@
 
-import { RootState } from "@/redux/store/store";
+import { RootState } from "@/shared/redux/store/store";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath:"api",

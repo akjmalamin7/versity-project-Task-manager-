@@ -1,5 +1,5 @@
-import { UserSchema } from "@/redux/features/profile/profile.models";
-import { userUpdate } from "@/redux/features/profile/profileSlice";
+import { UserSchema } from "@/shared/redux/features/profile/profile.models";
+import { userUpdate } from "@/shared/redux/features/profile/profileSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 

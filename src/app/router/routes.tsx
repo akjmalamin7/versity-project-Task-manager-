@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/profile",
-            element: <Suspense fallback={<Loader/>}><LazyProfile /></Suspense>,
+            element: <Suspense fallback={<Loader type="full_width" />}><LazyProfile /></Suspense>,
           },
           {
             path: "/create",
@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/all",
-            element: <Suspense fallback={<Loader/>}><LazyAllTask /></Suspense>,
+            element: <Suspense fallback={<Loader type="full_width"/>}><LazyAllTask /></Suspense>,
           },
           {
             path: "/new",

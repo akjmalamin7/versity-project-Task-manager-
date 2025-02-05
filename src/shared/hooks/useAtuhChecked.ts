@@ -1,4 +1,4 @@
-import { userLoggedIn } from "@/redux/features/auth/authSlice";
+import { userLoggedIn } from "@/shared/redux/features/auth/authSlice";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 

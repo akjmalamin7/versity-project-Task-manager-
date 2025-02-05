@@ -1,8 +1,8 @@
 import Container from "@/components/common/container/Container";
-import { userLoggedIn } from "@/redux/features/auth/authSlice";
-import { ProfileModels } from "@/redux/features/profile/profile.models";
-import { useGetProfileQuery, useProfileUpdateMutation } from "@/redux/features/profile/profileApi";
-import { userUpdate } from "@/redux/features/profile/profileSlice";
+import { userLoggedIn } from "@/shared/redux/features/auth/authSlice";
+import { ProfileModels } from "@/shared/redux/features/profile/profile.models";
+import { useGetProfileQuery, useProfileUpdateMutation } from "@/shared/redux/features/profile/profileApi";
+import { userUpdate } from "@/shared/redux/features/profile/profileSlice";
 import Button from "@/shared/ui/button";
 import Card from "@/shared/ui/card";
 import Input from "@/shared/ui/input";

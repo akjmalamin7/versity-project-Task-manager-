@@ -1,4 +1,4 @@
-import { RootState } from "@/redux/store/store";
+import { RootState } from "@/shared/redux/store/store";
 import { LazyLoader } from "@/shared/ui/lazyLoader";
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import Sidebar from "../sidebar";
 const Layout = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.sidebar.isToggle);
   return (
-    <div>
+    <div className="bg-gray-900">
       <header className="h-[55px] lg:h-[63px] w-[100%] bg-gray-800  fixed left-0 top-0 z-30 flex items-center border-b border-b-gray-700">
         <Header />
       </header>

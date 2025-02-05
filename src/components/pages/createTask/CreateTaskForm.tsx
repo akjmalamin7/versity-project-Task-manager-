@@ -1,6 +1,6 @@
-import { TaskModel } from "@/redux/features/tasks/task.models";
-import { TASK_SCHEMA } from "@/redux/features/tasks/task.shema";
-import { useCreateTaskMutation } from "@/redux/features/tasks/taskApi";
+import { TaskModel } from "@/shared/redux/features/tasks/task.models";
+import { TASK_SCHEMA } from "@/shared/redux/features/tasks/task.shema";
+import { useCreateTaskMutation } from "@/shared/redux/features/tasks/taskApi";
 import Button from "@/shared/ui/button";
 import Card from "@/shared/ui/card";
 import Input from "@/shared/ui/input";

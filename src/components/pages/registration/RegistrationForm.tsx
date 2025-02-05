@@ -1,6 +1,6 @@
-import { REGISTRATION_SCHEMA } from "@/redux/features/auth/auth.schema";
-import { UserSchema } from "@/redux/features/auth/auth.types";
-import { useRegistrationMutation } from "@/redux/features/auth/authApi";
+import { REGISTRATION_SCHEMA } from "@/shared/redux/features/auth/auth.schema";
+import { UserSchema } from "@/shared/redux/features/auth/auth.types";
+import { useRegistrationMutation } from "@/shared/redux/features/auth/authApi";
 import Button from "@/shared/ui/button";
 import Input from "@/shared/ui/input";
 import InputFile from "@/shared/ui/inputFile/InputFile";

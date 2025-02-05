@@ -1,7 +1,7 @@
 import HamburgerIcon from "@/assets/icons/hamburgerIcon";
-import useClickOutSide from "@/hooks/useClickOutSide";
-import { sidebarToggle } from "@/redux/features/sidebar/slidebarSlice";
-import { RootState } from "@/redux/store/store";
+import useClickOutSide from "@/shared/hooks/useClickOutSide";
+import { sidebarToggle } from "@/shared/redux/features/sidebar/slidebarSlice";
+import { RootState } from "@/shared/redux/store/store";
 import Avatar from "@/shared/ui/avatar";
 import Button from "@/shared/ui/button";
 import Text from "@/shared/ui/text";

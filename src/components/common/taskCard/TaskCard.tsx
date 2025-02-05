@@ -1,6 +1,6 @@
 import DeleteIcon from "@/assets/icons/deleteIcon";
 import EditIcon from "@/assets/icons/editIcon";
-import { TaskModel } from "@/redux/features/tasks/task.models";
+import { TaskModel } from "@/shared/redux/features/tasks/task.models";
 import Button from "@/shared/ui/button";
 import Card from "@/shared/ui/card";
 import DateFormate from "@/shared/ui/dateFormate";

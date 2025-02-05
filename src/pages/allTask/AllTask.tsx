@@ -1,7 +1,7 @@
 import Container from "@/components/common/container/Container";
 import PageHeader from "@/components/common/pageHeader";
 import TaskCard from "@/components/common/taskCard/TaskCard";
-import { useGetAllTaskQuery } from "@/redux/features/tasks/taskApi";
+import { useGetAllTaskQuery } from "@/shared/redux/features/tasks/taskApi";
 import Card from "@/shared/ui/card";
 import Loader from "@/shared/ui/loader";
 import Message from "@/shared/ui/message";

@@ -1,4 +1,4 @@
-import { userLoggedOut } from "@/redux/features/auth/authSlice";
+import { userLoggedOut } from "@/shared/redux/features/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 body {
   font-family: "Sora", serif;
-  background-color: oklch(0.21 0.034 264.665)
+  /* background-color: oklch(0.21 0.034 264.665) */
 }
 .menu_link{}
 .menu_link:hover .icon_style svg{

@@ -1,6 +1,6 @@
-import { LOGIN_SCHEMA } from "@/redux/features/auth/auth.schema";
-import { LoginData } from "@/redux/features/auth/auth.types";
-import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { LOGIN_SCHEMA } from "@/shared/redux/features/auth/auth.schema";
+import { LoginData } from "@/shared/redux/features/auth/auth.types";
+import { useLoginMutation } from "@/shared/redux/features/auth/authApi";
 import Button from "@/shared/ui/button";
 import Input from "@/shared/ui/input";
 import Text from "@/shared/ui/text";
