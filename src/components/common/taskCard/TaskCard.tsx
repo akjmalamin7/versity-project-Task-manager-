@@ -7,6 +7,7 @@ import DateFormate from "@/shared/ui/dateFormate";
 import Tag from "@/shared/ui/tag/Tag";
 import Text from "@/shared/ui/text";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import DeleteTask from "../deleteTask";
 import SelectStatus from "../selectStatus/SelectStatus";
 
@@ -33,9 +34,7 @@ const TaskCard = ({ title, description, status, _id }: TaskModel) => {
             <div className="flex gap-[5px]">
               <DateFormate />
               <div className="flex items-center">
-                <Button variant="text" className="h-[auto] px-0 lg:cursor-pointer">
-                  <EditIcon />
-                </Button>
+                <Link to={`/tasks/${_id}`}><EditIcon /></Link>
                 <Button
                   variant="text"
                   className="h-[auto] px-0 lg:cursor-pointer"
@@ -79,7 +78,7 @@ const TaskCard = ({ title, description, status, _id }: TaskModel) => {
           </Text>
         </Card.CardBody>
       </Card>
-      {visible && selectedId && <DeleteTask onCancel={handleVisible} getDeletedId={selectedId} />}
+      {visible && selectedId && <DeleteTask title={title} onCancel={handleVisible} getDeletedId={selectedId} />}
     </>
   );
 };

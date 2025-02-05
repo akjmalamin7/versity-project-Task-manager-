@@ -2,10 +2,11 @@ import { useDeleteTaskMutation } from "@/shared/redux/features/tasks/taskApi";
 import Modal from "@/shared/ui/modal";
 import Text from "@/shared/ui/text";
 interface Props {
+  title?:string;
   getDeletedId?: string;
   onCancel: () => void;
 }
-const DeleteTask = ({ getDeletedId, onCancel }: Props) => {
+const DeleteTask = ({ getDeletedId,title, onCancel }: Props) => {
   const [deleteTask, { isLoading }] = useDeleteTaskMutation();
 
   const handleDelete = async () => {
@@ -20,7 +21,7 @@ const DeleteTask = ({ getDeletedId, onCancel }: Props) => {
 
   return (
     <Modal
-      title="Delete Task"
+      title={title}
       submitButton="Delete"
       cancelButton="Cancel"
       loading={isLoading}
@@ -30,7 +31,7 @@ const DeleteTask = ({ getDeletedId, onCancel }: Props) => {
     >
       <div className="py-[20px]">
         
-        <Text color="white">Are you sure! Want to delete this <strong className="text-red-300">{getDeletedId}</strong> task!</Text>
+        <Text color="white">Are you sure! Want to delete this <strong className="text-red-300">{title}</strong> task!</Text>
       </div>
     </Modal>
   );

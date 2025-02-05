@@ -33,12 +33,7 @@ const CreateTaskForm = () => {
   };
   return (
     <Card>
-      <Card.CardHeader padding="md">
-        <Text element="h1" fontWeight="semiBold" color="white" size="xl">
-          {" "}
-          Create New Task
-        </Text>
-      </Card.CardHeader>
+      
       <Card.CardBody padding="lg">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-1 gap-[30px] py-[20px]">

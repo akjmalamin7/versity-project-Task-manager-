@@ -1,14 +1,14 @@
 import Container from "@/components/common/container/Container"
 import PageHeader from "@/components/common/pageHeader"
-import CreateTaskForm from "@/components/pages/createTask"
+import UpdateTaskForm from "@/components/common/updateTaskForm"
 
-const CreateTask = () => {
+const UpdateTask = () => {
   return (
     <Container width="sm">
-      <PageHeader title="Create task" />
-      <CreateTaskForm/>
+        <PageHeader title="Update task" />
+      <UpdateTaskForm/>
     </Container>
   )
 }
 
-export default CreateTask
+export default UpdateTask

@@ -15,6 +15,7 @@ const LazyNewTask = lazy(() => import("@/pages/newTask/NewTask"));
 const LazyInProgressTask = lazy(() => import("@/pages/inProgressTask/InProgressTask"));
 const LazyCompletedTask = lazy(() => import("@/pages/completedTask/CompletedTask"));
 const LazyCanceledTask = lazy(() => import("@/pages/canceledTask/CanceledTask"));
+const LazyUpdateTask = lazy(() => import("@/pages/updateTask/UpdateTask"));
 
 
 const ErrorFallback = () => <div>Something went wrong. Page not found.</div>;
@@ -85,6 +86,10 @@ export const router = createBrowserRouter([
           {
             path: "/canceled",
             element: <LazyCanceledTask />,
+          },
+          {
+            path: "/tasks/:_id",
+            element: <LazyUpdateTask />,
           },
           {
             path: "*",

@@ -14,6 +14,7 @@ export const apiSlice = createApi({
     },
   }),
   tagTypes: [
+    "DeleteTask",
     "Task",
     "TaskList",
     "NewTask",
