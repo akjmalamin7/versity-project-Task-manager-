@@ -56,7 +56,7 @@ const Select = (
     transparent: "",
   }[bgColor];
 
-  const finalSelectClasses = `border border-gray-500  w-full px-[15px] text-gray-100  outline-none ${roundClasses} ${sizeClasses} ${bgClasses} ${colorClasses} ${className}`;
+  const finalSelectClasses = `border border-gray-500  w-full px-[15px] text-white  outline-none ${roundClasses} ${sizeClasses} ${bgClasses} ${colorClasses} ${className}c`;
 
   return (
     <div className="w-full">

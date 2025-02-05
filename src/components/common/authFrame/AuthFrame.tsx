@@ -42,7 +42,7 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
           <div className="flex">
             {/* Login Button */}
             <Button
-              className="rounded-tr-none rounded-br-none lg:cursor-pointer"
+              className="rounded-tr-none  justify-center rounded-br-none lg:cursor-pointer"
               width="full"
               variant={activeForm === "login" ? "fill" : "outline"}
               onClick={() => handleActiveForm("login")}

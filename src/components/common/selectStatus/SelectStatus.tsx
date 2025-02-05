@@ -63,10 +63,10 @@ const SelectStatus = ({ _id,className,setVisibleTag, defaultSelectText, name, on
         <option value="" className="text-gray-300">
           {defaultSelectText}
         </option>
-        <option value="new">New</option>
-        <option value="progress">In Progress</option>
-        <option value="completed">Completed</option>
-        <option value="canceled">Canceled</option>
+        <option value="new" className="text-gray-950">New</option>
+        <option value="progress" className="text-gray-950">In Progress</option>
+        <option value="completed" className="text-gray-950">Completed</option>
+        <option value="canceled" className="text-gray-950">Canceled</option>
       </Select>
     );
   }
