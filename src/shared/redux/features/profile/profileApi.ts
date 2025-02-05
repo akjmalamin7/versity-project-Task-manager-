@@ -14,7 +14,7 @@ export const profileApi = apiSlice.injectEndpoints({
         url: "/profile/update",
         method: "PATCH",
         body: data,
-      }),
+      })
     }),
   }),
 });

@@ -9,7 +9,6 @@ import Message from "@/shared/ui/message";
 const AllTask = () => {
   const { data, error, isLoading } = useGetAllTaskQuery();
   const tasks = data?.data ?? [];
-  console.log(tasks);
   let content = null;
   if (isLoading) {
     content = <Loader />;
@@ -26,6 +25,7 @@ const AllTask = () => {
     content = tasks.map((task) => (
       <TaskCard
         key={task._id}
+        _id={task._id || ""}
         title={task.title || ""}
         description={task.description || ""}
         status={task.status || "new"}

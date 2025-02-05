@@ -1,4 +1,5 @@
 import CardBody from "./CardBody";
+import CardFooter from "./CardFooter";
 import CardHeader from "./CardHeader";
 
 interface CardProps {
@@ -12,7 +13,7 @@ interface CardProps {
 
 const cardStyles: Record<string, string> = {
   border: "border border-[#E5E5F0]",
-  shadow: "shadow-custom-1",
+  shadow: "drop-shadow-sm",
 };
 
 const bgColors: Record<string, string> = {
@@ -53,4 +54,5 @@ const Card = ({
 };
 Card.CardHeader = CardHeader;
 Card.CardBody = CardBody;
+Card.CardFooter = CardFooter;
 export default Card;

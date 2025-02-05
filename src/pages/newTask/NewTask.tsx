@@ -22,7 +22,7 @@ const NewTask = () => {
   } else if (!isLoading && !error && tasks.length === 0) {
     content = <Message message="No Task found" />;
   } else if (!isLoading && !error && tasks.length > 0) {
-    content =tasks.map((task)=>( <TaskCard key={task._id} title={task.title || ""} description={task?.description || ""} status={task?.status} />))
+    content =tasks.map((task)=>( <TaskCard key={task._id}  _id={task._id || ""} title={task.title || ""} description={task?.description || ""} status={task?.status} />))
   } else {
     content = <Message message="No Task found" />;
   }

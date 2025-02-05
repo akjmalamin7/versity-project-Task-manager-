@@ -48,9 +48,9 @@ const Button = ({
   };
 
   const variantClass = {
-    fill: `px-5 py-2 ${colorVariants[color]}`,
-    outline: `px-5 py-2 ${outlineVariants[color]}`,
-    text: "bg-transparent border-transparent px-0 py-0 h-auto",
+    fill: `px-[20px] py-[8px] inline-flex items-center ${colorVariants[color]}`,
+    outline: `px-[20px] py-[8px] inline-flex items-center ${outlineVariants[color]}`,
+    text: "bg-transparent border-transparent px-0 py-0 h-[auto]",
   }[variant];
   const sizeClass = {
     "size-1": "h-[28px] md:h-[32px]  text-[14px] font-regular",

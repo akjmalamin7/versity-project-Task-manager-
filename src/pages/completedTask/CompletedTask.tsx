@@ -7,39 +7,41 @@ import Loader from "@/shared/ui/loader";
 import Message from "@/shared/ui/message";
 
 const CompletedTask = () => {
-  const { data, error, isLoading } = useGetCompletedTaskQuery();
-  const tasks = data?.data ?? [];
-  console.log(tasks);
+  const { data, error, isLoading } = useGetCompletedTaskQuery(undefined);
+
   let content = null;
+
   if (isLoading) {
     content = <Loader />;
-  } else if (!isLoading && error) {
+  } else if (error) {
     const errorMessage =
       "data" in error && error.data && typeof error.data === "object"
         ? (error.data as { message?: string }).message || "Something went wrong"
         : "Something went wrong";
-
     content = <Message message={errorMessage} />;
-  } else if (!isLoading && !error && tasks.length === 0) {
-    content = <Message message="No Task found" />;
-  } else if (!isLoading && !error && tasks.length > 0) {
-    content = tasks.map((task) => (
-      <TaskCard
-        key={task._id}
-        title={task.title || ""}
-        description={task.description || ""}
-        status={task.status || "new"}
-      />
-    ));
   } else {
-    content = <Message message="No Task found" />;
+    const tasks = data?.data ?? [];
+    if (tasks.length === 0) {
+      content = <Message message="No Task found" />;
+    } else {
+      content = tasks.map((task) => (
+        <TaskCard
+          key={task._id}
+          _id={task._id || ""}
+          title={task.title || ""}
+          description={task.description || ""}
+          status={task.status || "new"}
+        />
+      ));
+    }
   }
+
   return (
     <Container width="lg">
-      <PageHeader title="All task" />
+      <PageHeader title="Completed Tasks" />
       <Card>
         <Card.CardBody padding="md">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-[20px] lg:gap-[25px] ">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] lg:gap-[25px] ">
             {content}
           </div>
         </Card.CardBody>

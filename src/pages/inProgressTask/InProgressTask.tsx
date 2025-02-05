@@ -25,6 +25,7 @@ const InProgressTask = () => {
     content = tasks.map((task) => (
       <TaskCard
         key={task._id}
+        _id={task._id || ""}
         title={task.title || ""}
         description={task?.description || ""}
         status={task?.status}
