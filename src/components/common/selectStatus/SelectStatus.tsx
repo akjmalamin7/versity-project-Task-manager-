@@ -7,16 +7,23 @@ import Text from "@/shared/ui/text";
 import React, { useState } from "react";
 interface Props {
   defaultSelectText?: string;
-  value?: string | null;  // Allow null here
+  value?: string | null; // Allow null here
   name?: string;
   className?: string;
   setVisibleTag: React.Dispatch<React.SetStateAction<boolean>>;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  _id?: string | null;  // Allow null for _id
+  _id?: string | null; // Allow null for _id
 }
 
-
-const SelectStatus = ({ _id,className,setVisibleTag, defaultSelectText, name, onChange, value }: Props) => {
+const SelectStatus = ({
+  _id,
+  className,
+  setVisibleTag,
+  defaultSelectText,
+  name,
+  onChange,
+  value,
+}: Props) => {
   const [updateTaskByStatus, { error, isLoading }] = useUpdateTaskByStatusMutation();
   const [selectedStatus, setSelectedStatus] = useState(value || "");
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -30,19 +37,17 @@ const SelectStatus = ({ _id,className,setVisibleTag, defaultSelectText, name, on
     if (!_id || !selectedStatus) {
       return;
     }
-  
+
     const dataToSend = { id: _id, status: selectedStatus };
-    console.log("Sending data:", dataToSend); 
-    
+
     try {
       await updateTaskByStatus(dataToSend).unwrap();
-      setVisibleTag(false)
+      setVisibleTag(false);
     } catch (err) {
       console.error("Error updating task status:", err);
     }
   };
-  
-  
+
   let content = null;
   if (isLoading) {
     return (content = <Loader type="regular" />);
@@ -55,16 +60,23 @@ const SelectStatus = ({ _id,className,setVisibleTag, defaultSelectText, name, on
         size="sm"
         onChange={handleSelectChange}
         name={name}
-        
-        value={selectedStatus }
+        value={selectedStatus}
       >
         <option value="" className="text-gray-300">
           {defaultSelectText}
         </option>
-        <option value="new" className="text-gray-950">New</option>
-        <option value="progress" className="text-gray-950">In Progress</option>
-        <option value="completed" className="text-gray-950">Completed</option>
-        <option value="canceled" className="text-gray-950">Canceled</option>
+        <option value="new" className="text-gray-950">
+          New
+        </option>
+        <option value="progress" className="text-gray-950">
+          In Progress
+        </option>
+        <option value="completed" className="text-gray-950">
+          Completed
+        </option>
+        <option value="canceled" className="text-gray-950">
+          Canceled
+        </option>
       </Select>
     );
   }
@@ -72,7 +84,13 @@ const SelectStatus = ({ _id,className,setVisibleTag, defaultSelectText, name, on
     <div className="flex items-center gap-[4px]">
       {content}
       <div className="flex items-center">
-        <Button variant="text" size="size-1" color="white" className="lg:cursor-pointer" onClick={handleSaveClick}>
+        <Button
+          variant="text"
+          size="size-1"
+          color="white"
+          className="lg:cursor-pointer"
+          onClick={handleSaveClick}
+        >
           <Text size="md" color="white">
             Save
           </Text>
