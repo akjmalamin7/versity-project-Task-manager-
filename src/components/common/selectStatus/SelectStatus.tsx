@@ -28,17 +28,15 @@ const SelectStatus = ({ _id,className,setVisibleTag, defaultSelectText, name, on
 
   const handleSaveClick = async () => {
     if (!_id || !selectedStatus) {
-      console.log("Invalid ID or status");
       return;
     }
   
     const dataToSend = { id: _id, status: selectedStatus };
-    console.log("Sending data:", dataToSend); // Log the data being sent
+    console.log("Sending data:", dataToSend); 
     
     try {
       await updateTaskByStatus(dataToSend).unwrap();
       setVisibleTag(false)
-      console.log("Task status updated successfully");
     } catch (err) {
       console.error("Error updating task status:", err);
     }

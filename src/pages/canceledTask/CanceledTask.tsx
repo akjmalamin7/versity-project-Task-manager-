@@ -9,7 +9,6 @@ import Message from "@/shared/ui/message";
 const CanceledTask = () => {
   const { data, error, isLoading } = useGetCanceledTaskQuery();
   const tasks = data?.data ?? [];
-  console.log(tasks);
   let content = null;
   if (isLoading) {
     content = <Loader />;

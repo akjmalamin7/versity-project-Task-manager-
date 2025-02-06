@@ -76,7 +76,7 @@ const [registration,{isLoading}] = useRegistrationMutation()
           )}
         </div>
 
-        <div>
+        <div className="hidden">
           <InputFile {...register("photo")} className="border-[#D6D6D6]" placeholder="Your Photo" />
           {errors.photo && (
             <Text size="sm" className="text-red-500">

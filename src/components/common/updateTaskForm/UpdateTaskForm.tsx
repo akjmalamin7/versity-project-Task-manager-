@@ -8,17 +8,16 @@ import TextArea from "@/shared/ui/textArea";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateTaskForm = () => {
   const { _id: taskId } = useParams();
-
+  const navigate = useNavigate();
   const { data, error, isLoading } = useViewTaskQuery(taskId);
   const getTask = data?.data;
   const [task, setTask] = useState<TaskModel | null>(null);
-
-  const [updateTask, { isLoading: isUpdating }] = useUpdateTaskMutation(); // Added mutation hook
-
+  const getStatus = data?.data?.status;
+  const [updateTask, { isLoading: isUpdating }] = useUpdateTaskMutation();
   useEffect(() => {
     if (getTask) {
       setTask(getTask || {});
@@ -41,29 +40,27 @@ const UpdateTaskForm = () => {
   });
 
   // Reset form when task data is updated
-// Reset form with updated task data
-useEffect(() => {
-  if (task) {
-    reset({
-      title: task.title || "",
-      description: task.description || "",
-      status: task.status || "new",
-    });
-  }
-}, [task, reset]);
-
+  // Reset form with updated task data
+  useEffect(() => {
+    if (task) {
+      reset({
+        title: task.title || "",
+        description: task.description || "",
+        status: task.status || "new",
+      });
+    }
+  }, [task, reset]);
 
   // Handle form submit
   const onSubmit: SubmitHandler<TaskModel> = async (data) => {
     try {
       await updateTask({ id: taskId, data }).unwrap();
-      console.log("Task updated successfully");
+      navigate(`/${getStatus}`);
       reset();
     } catch (err) {
       console.error("Update failed:", err);
     }
   };
-  
 
   if (isLoading) return <div>Loading...</div>;
   if (error || !task) return <div>Error loading task</div>;
@@ -81,9 +78,7 @@ useEffect(() => {
                   <Input {...field} size="md" color="light" placeholder="Task Name" />
                 )}
               />
-              {errors.title && (
-                <p className="text-red-500">{errors.title.message}</p>
-              )}
+              {errors.title && <p className="text-red-500">{errors.title.message}</p>}
             </div>
             <div>
               <Controller
@@ -93,9 +88,7 @@ useEffect(() => {
                   <TextArea {...field} size="md" color="light" placeholder="Task Description" />
                 )}
               />
-              {errors.description && (
-                <p className="text-red-500">{errors.description.message}</p>
-              )}
+              {errors.description && <p className="text-red-500">{errors.description.message}</p>}
             </div>
             <div className="flex justify-end">
               <Button

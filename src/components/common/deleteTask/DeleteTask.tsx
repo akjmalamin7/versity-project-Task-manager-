@@ -8,7 +8,6 @@ interface Props {
 }
 const DeleteTask = ({ getDeletedId,title, onCancel }: Props) => {
   const [deleteTask, { isLoading }] = useDeleteTaskMutation();
-
   const handleDelete = async () => {
     if (!getDeletedId) return; 
     try {
