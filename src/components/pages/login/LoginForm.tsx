@@ -24,7 +24,8 @@ const LoginForm = () => {
   const [login, { isLoading }] = useLoginMutation();
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
     try {
-      await login(data).unwrap();
+      const result = await login(data).unwrap();
+      toast(result.message);
       navigate("/");
     } catch (error) {
       if (error instanceof Error) {

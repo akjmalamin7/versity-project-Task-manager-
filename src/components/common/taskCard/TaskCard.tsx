@@ -37,7 +37,7 @@ const TaskCard = ({ title, description, status, _id }: TaskModel) => {
                 <Link to={`/tasks/${_id}`}><EditIcon /></Link>
                 <Button
                   variant="text"
-                  className="h-[auto] px-0 lg:cursor-pointer"
+                  className="h-[auto] px-0 lg:cursor-pointer lg:h-[auto]"
                   onClick={() => handleVisible(_id)}
                 >
                   <DeleteIcon />
@@ -60,7 +60,7 @@ const TaskCard = ({ title, description, status, _id }: TaskModel) => {
                 <Button
                   type="button"
                   variant="text"
-                  className="lg:cursor-pointer"
+                  className="lg:cursor-pointer lg:h-[auto]"
                   onClick={handleVisibleTag}
                 >
                   <Tag tag={status || "new"} />

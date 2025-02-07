@@ -42,7 +42,7 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
           <div className="flex">
             {/* Login Button */}
             <Button
-              className="rounded-tr-none  justify-center rounded-br-none lg:cursor-pointer"
+              className="rounded-tr-none  justify-center rounded-br-none"
               width="full"
               variant={activeForm === "login" ? "fill" : "outline"}
               onClick={() => handleActiveForm("login")}
@@ -53,7 +53,7 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
 
             {/* Registration Button */}
             <Button
-              className="rounded-tl-none rounded-bl-none lg:cursor-pointer"
+              className="rounded-tl-none rounded-bl-none"
               size="size-5"
               width="full"
               variant={activeForm === "registration" ? "fill" : "outline"}
@@ -74,9 +74,10 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
           {children}
         </div>
         <div>
-          <div className="flex flex-col items-center mt-[16px] lg:mt-[30px] mb-[16px] lg:mb-[20px] gap-[8px]">
-            <Text color="secondary">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis hic iusto, 
+          <div className="flex flex-col items-center mt-[16px] lg:mt-[20px] mb-[16px] lg:mb-[16px] gap-[8px]">
+            <Text color="secondary" size="md" fontWeight="regular">
+            Login to your account and access your dashboard.
+            New user? Register and enjoy our services.
             </Text>
           </div>
         </div>

@@ -30,7 +30,8 @@ const RegistrationForm = () => {
   const [registration, { isLoading }] = useRegistrationMutation();
   const onSubmit: SubmitHandler<UserSchema> = async (data) => {
     try {
-      await registration(data).unwrap();
+      const result = await registration(data).unwrap();
+      toast(result.message);
       navigate("/login");
     } catch (error) {
       if (error instanceof Error) {
