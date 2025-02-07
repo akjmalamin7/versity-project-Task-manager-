@@ -3,19 +3,17 @@ interface LoaderProps {
 }
 const Loader = ({ type = "regular" }: LoaderProps) => {
   let loaderClass = "";
-  if(type === "regular"){
-    loaderClass = "normal"
-  }else if(type==="full_width"){
-    loaderClass = "fixed h-screen w-full left-0 bottom-0 flex justify-center items-center"
-  }else if(type=== "fit"){
-    loaderClass = "absolute h-[100%] w-[100%] left-0 top-0 flex justify-center items-center"
-  }else{
-    loaderClass = "normal"
+  if (type === "regular") {
+    loaderClass = "normal";
+  } else if (type === "full_width") {
+    loaderClass = "fixed h-screen w-full left-0 bottom-0 flex justify-center items-center";
+  } else if (type === "fit") {
+    loaderClass = "absolute h-[100%] w-[100%] left-0 top-0 flex justify-center items-center";
+  } else {
+    loaderClass = "normal";
   }
   return (
-    <div
-      className={`${loaderClass}`}
-    >
+    <div className={`${loaderClass}`}>
       <div className="flex">
         <div className="relative">
           <div

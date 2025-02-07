@@ -13,7 +13,7 @@ const Dashboard = () => {
   let content = null;
   let messageContent = null;
   if (isLoading) {
-    content = <Loader />;
+    messageContent = <Loader type="fit" />;
   } else if (!isLoading && error) {
     const errorMessage =
       "data" in error && error.data && typeof error.data === "object"
@@ -40,7 +40,7 @@ const Dashboard = () => {
               {content}
             </div>
           ) : (
-            <div className="">{messageContent}</div>
+            <div className="py-[40px] relative">{messageContent}</div>
           )}
         </Card.CardBody>
       </Card>

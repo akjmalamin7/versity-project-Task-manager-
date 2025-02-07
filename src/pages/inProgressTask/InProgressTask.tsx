@@ -12,7 +12,7 @@ const InProgressTask = () => {
   let content = null;
   let errorOrEmptyContent = null;
   if (isLoading) {
-    errorOrEmptyContent = <Loader />;
+    errorOrEmptyContent = <Loader type="fit"/>;
   } else if (!isLoading && error) {
     const errorMessage =
       "data" in error && error.data && typeof error.data === "object"
