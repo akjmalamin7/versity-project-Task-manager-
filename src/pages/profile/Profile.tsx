@@ -30,7 +30,7 @@ const Profile = () => {
   // ?@________ update profile ______@
   const [profileUpdate, { isLoading }] = useProfileUpdateMutation();
   // Initialize React Hook Form
-  const { register, handleSubmit, control, setValue, reset } = useForm<ProfileModels>({
+  const { register, handleSubmit, control, setValue } = useForm<ProfileModels>({
     defaultValues: {
       firstName: "",
       lastName: "",
