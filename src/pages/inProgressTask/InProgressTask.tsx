@@ -36,7 +36,7 @@ const InProgressTask = () => {
   }
   return (
     <Container width="lg">
-      <PageHeader title="New tasks" />
+      <PageHeader title="Progress tasks" />
       <Card>
         <Card.CardBody padding="md">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-[20px] lg:gap-[25px] ">

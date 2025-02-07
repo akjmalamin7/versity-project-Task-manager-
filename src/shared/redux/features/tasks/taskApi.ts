@@ -18,7 +18,7 @@ export const taskApi = apiSlice.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: ["Task", "TaskList", "TaskView", "NewTask","CompletedTask","InProgressTask","CanceledTask"],
+      invalidatesTags: ["TaskAnalytics","Task", "TaskList", "TaskView", "NewTask","CompletedTask","InProgressTask","CanceledTask"],
     }),
 
     deleteTask: builder.mutation({
@@ -26,7 +26,7 @@ export const taskApi = apiSlice.injectEndpoints({
         url: `/task/${id}`, 
         method: "DELETE",
       }),
-      invalidatesTags: ["DeleteTask","Task", "TaskList", "TaskView", "NewTask","CompletedTask","InProgressTask","CanceledTask"], 
+      invalidatesTags: ["TaskAnalytics","DeleteTask","Task", "TaskList", "TaskView", "NewTask","CompletedTask","InProgressTask","CanceledTask"], 
     }),
 
     getAllTask: builder.query<{ data: TaskModel[] }, void>({
@@ -43,7 +43,7 @@ export const taskApi = apiSlice.injectEndpoints({
         url: "/tasks/list/new",
         method: "GET",
       }),
-      providesTags: ["DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
+      providesTags: ["TaskAnalytics","DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
       keepUnusedDataFor: 60,
     }),
 
@@ -52,7 +52,7 @@ export const taskApi = apiSlice.injectEndpoints({
         url: "/tasks/list/progress",
         method: "GET",
       }),
-      providesTags: ["DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
+      providesTags: ["TaskAnalytics","DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
       keepUnusedDataFor: 60,
     }),
 
@@ -61,7 +61,7 @@ export const taskApi = apiSlice.injectEndpoints({
         url: "/tasks/list/completed",
         method: "GET",
       }),
-      providesTags: ["DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
+      providesTags: ["TaskAnalytics","DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
       keepUnusedDataFor: 60,
     }),
 
@@ -70,7 +70,7 @@ export const taskApi = apiSlice.injectEndpoints({
         url: "/tasks/list/canceled",
         method: "GET",
       }),
-      providesTags: ["DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
+      providesTags: ["TaskAnalytics","DeleteTask","TaskList","NewTask","InProgressTask","CompletedTask","CanceledTask"],
       keepUnusedDataFor: 60,
     }),
 
@@ -89,7 +89,7 @@ export const taskApi = apiSlice.injectEndpoints({
         method: "PUT",
         body:{status:status}
       }),
-      invalidatesTags: ["DeleteTask","Task", "TaskList", "TaskView", "NewTask","CompletedTask","InProgressTask","CanceledTask"], 
+      invalidatesTags: ["TaskAnalytics","DeleteTask","Task", "TaskList", "TaskView", "NewTask","CompletedTask","InProgressTask","CanceledTask"], 
     }),
 
     taskCount: builder.query({
@@ -97,7 +97,7 @@ export const taskApi = apiSlice.injectEndpoints({
         url: `/tasks/status-count`,
         method: "GET",
       }),
-      providesTags: ["TaskAnalytics"], 
+      providesTags: ["TaskAnalytics","Task", "TaskList", "TaskView", "NewTask","CompletedTask","InProgressTask","CanceledTask"], 
       keepUnusedDataFor: 60,
     }),
   }),
