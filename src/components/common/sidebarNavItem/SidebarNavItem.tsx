@@ -21,7 +21,7 @@ const SidebarNavItem = ({ icon, path, title }: Props) => {
             </div>
           )}
           <div>
-            <Text element="p" fontWeight="medium" color="white">
+            <Text size="md" element="p" fontWeight="medium" color="white">
               {title}
             </Text>
           </div>
