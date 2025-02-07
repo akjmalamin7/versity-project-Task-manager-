@@ -10,7 +10,12 @@ const App = () => {
   }
   return (
     <>
-      <ToastContainer position="bottom-center" transition={Slide} autoClose={1500}  />
+      <ToastContainer
+        position="top-center"
+        transition={Slide}
+        autoClose={1500}
+        toastStyle={{ background: "#ffffff" }}
+      />
       <RouterProvider router={router} />
     </>
   );
