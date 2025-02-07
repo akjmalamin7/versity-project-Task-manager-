@@ -1,7 +1,10 @@
 import Container from "@/components/common/container/Container";
 import { userLoggedIn } from "@/shared/redux/features/auth/authSlice";
 import { ProfileModels } from "@/shared/redux/features/profile/profile.models";
-import { useGetProfileQuery, useProfileUpdateMutation } from "@/shared/redux/features/profile/profileApi";
+import {
+  useGetProfileQuery,
+  useProfileUpdateMutation,
+} from "@/shared/redux/features/profile/profileApi";
 import { userUpdate } from "@/shared/redux/features/profile/profileSlice";
 import Button from "@/shared/ui/button";
 import Card from "@/shared/ui/card";
@@ -12,18 +15,18 @@ import Message from "@/shared/ui/message";
 import { ChangeEvent, useEffect, useRef } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const userImgView = useRef<HTMLImageElement | null>(null);
   const userImgRef = useRef<HTMLInputElement | null>(null);
   const dispatch = useDispatch();
-  const authDispatch = useDispatch()
+  const authDispatch = useDispatch();
 
   //?@_______ Fetch profile data ______@
   const { data, error, isLoading: getProfileLoading, refetch } = useGetProfileQuery();
   const user = data?.data[0];
 
-  
   // ?@________ update profile ______@
   const [profileUpdate, { isLoading }] = useProfileUpdateMutation();
   // Initialize React Hook Form
@@ -36,7 +39,7 @@ const Profile = () => {
       photo: "",
     },
   });
- 
+
   // ?@_______ Set initial form values when user data is loaded ______@
   useEffect(() => {
     const localUser = localStorage.getItem("auth");
@@ -49,18 +52,23 @@ const Profile = () => {
       setValue("photo", user.photo || "");
     }
     dispatch(userUpdate(user!));
-    localStorage.setItem("auth", JSON.stringify({
-      token: parseLocalUser.token,
-      user: user
-    }));
-    
-    if (user && parseLocalUser.token) {
-      authDispatch(userLoggedIn({
+    localStorage.setItem(
+      "auth",
+      JSON.stringify({
         token: parseLocalUser.token,
         user: user,
-      }));
+      })
+    );
+
+    if (user && parseLocalUser.token) {
+      authDispatch(
+        userLoggedIn({
+          token: parseLocalUser.token,
+          user: user,
+        })
+      );
     }
-  }, [user, setValue, dispatch,authDispatch]);
+  }, [user, setValue, dispatch, authDispatch]);
 
   // ?@__________ Image upload handler __________@
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
@@ -80,9 +88,10 @@ const Profile = () => {
   const onSubmit = async (data: ProfileModels) => {
     try {
       const updatedProfile = await profileUpdate(data).unwrap();
+      toast(updatedProfile.message);
       dispatch(userUpdate(user!));
       refetch();
-      reset(updatedProfile.data[0]);
+      // reset(updatedProfile.data[0]);
     } catch (err) {
       console.error("Registration failed:", err);
     }

@@ -5,6 +5,7 @@ import Message from "@/shared/ui/message";
 import { Select } from "@/shared/ui/select";
 import Text from "@/shared/ui/text";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 interface Props {
   defaultSelectText?: string;
   value?: string | null; // Allow null here
@@ -41,7 +42,8 @@ const SelectStatus = ({
     const dataToSend = { id: _id, status: selectedStatus };
 
     try {
-      await updateTaskByStatus(dataToSend).unwrap();
+      const result = await updateTaskByStatus(dataToSend).unwrap();
+      toast(result.message);
       setVisibleTag(false);
     } catch (err) {
       console.error("Error updating task status:", err);
