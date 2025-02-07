@@ -19,7 +19,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
       onInput,
       onBlur,
       onFocus,
-      onClear,
+      // onClear,
       onKeyDown,
     },
     ref
@@ -53,7 +53,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
         )}
         <div className="relative w-full">
           <textarea
-            id={name}
+            // id={name}
             name={name}
             value={value}
             placeholder={placeholder}
@@ -66,7 +66,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
             ref={ref}
             className={finalInputClasses}
           />
-          {onClear && (
+          {/* {onClear && (
             <button
               type="button"
               className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-[#74788D] hover:text-red-500"
@@ -74,9 +74,9 @@ const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
             >
               ✕
             </button>
-          )}
+          )} */}
         </div>
-        {isLoading && <p className="mt-2 text-sm text-gray-500">Loading...</p>}
+        {/* {isLoading && <p className="mt-2 text-sm text-gray-500">Loading...</p>} */}
       </div>
     );
   }

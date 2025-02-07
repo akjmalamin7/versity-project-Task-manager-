@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateTaskForm = () => {
   const { _id: taskId } = useParams();
@@ -54,7 +55,8 @@ const UpdateTaskForm = () => {
   // Handle form submit
   const onSubmit: SubmitHandler<TaskModel> = async (data) => {
     try {
-      await updateTask({ id: taskId, data }).unwrap();
+      const result = await updateTask({ id: taskId, data }).unwrap();
+      toast(result.message);
       navigate(`/${getStatus}`);
       reset();
     } catch (err) {

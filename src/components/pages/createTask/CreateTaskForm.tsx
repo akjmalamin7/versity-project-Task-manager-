@@ -8,6 +8,7 @@ import Text from "@/shared/ui/text";
 import TextArea from "@/shared/ui/textArea";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const CreateTaskForm = () => {
   const {
@@ -25,7 +26,9 @@ const CreateTaskForm = () => {
   const [createTask, { isLoading }] = useCreateTaskMutation();
   const onSubmit: SubmitHandler<TaskModel> = async (data) => {
     try {
-      await createTask(data).unwrap();
+      const result = await createTask(data).unwrap();
+      toast(result.message)
+
       reset();
     } catch (err) {
       console.error("Creating failed:", err);

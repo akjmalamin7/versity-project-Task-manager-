@@ -8,6 +8,7 @@ import Text from "@/shared/ui/text";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -22,18 +23,24 @@ const RegistrationForm = () => {
       lastName: "",
       email: "",
       mobile: "",
-      photo: "", 
+      photo: "",
       password: "",
     },
   });
-const [registration,{isLoading}] = useRegistrationMutation()
+  const [registration, { isLoading }] = useRegistrationMutation();
   const onSubmit: SubmitHandler<UserSchema> = async (data) => {
-    console.log(data);
     try {
       await registration(data).unwrap();
       navigate("/login");
-    } catch (err) {
-      console.error("Registration failed:", err);
+    } catch (error) {
+      if (error instanceof Error) {
+        toast(error.message);
+      } else if (typeof error === "object" && error !== null && "data" in error) {
+        const err = error as { data: { message: string } };
+        toast(err.data.message);
+      } else {
+        toast("Something went wrong!");
+      }
     }
   };
 
@@ -86,7 +93,11 @@ const [registration,{isLoading}] = useRegistrationMutation()
         </div>
 
         <div>
-          <Input {...register("password")} className="border-[#D6D6D6]" placeholder="Your Password" />
+          <Input
+            {...register("password")}
+            className="border-[#D6D6D6]"
+            placeholder="Your Password"
+          />
           {errors.password && (
             <Text size="sm" className="text-red-500">
               {errors.password.message}
@@ -95,8 +106,15 @@ const [registration,{isLoading}] = useRegistrationMutation()
         </div>
 
         <div>
-          <Button loading={isLoading} disabled={!isValid} type="submit" size="size-5" variant="fill" width="full">
-            {isLoading === true?"Submitting...":"Registration"}
+          <Button
+            loading={isLoading}
+            disabled={!isValid}
+            type="submit"
+            size="size-5"
+            variant="fill"
+            width="full"
+          >
+            {isLoading === true ? "Submitting..." : "Registration"}
           </Button>
         </div>
       </div>

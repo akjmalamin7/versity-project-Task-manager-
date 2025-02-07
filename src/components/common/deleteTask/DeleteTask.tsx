@@ -1,6 +1,7 @@
 import { useDeleteTaskMutation } from "@/shared/redux/features/tasks/taskApi";
 import Modal from "@/shared/ui/modal";
 import Text from "@/shared/ui/text";
+import { toast } from "react-toastify";
 interface Props {
   title?:string;
   getDeletedId?: string;
@@ -11,7 +12,8 @@ const DeleteTask = ({ getDeletedId,title, onCancel }: Props) => {
   const handleDelete = async () => {
     if (!getDeletedId) return; 
     try {
-      await deleteTask(getDeletedId).unwrap();
+     const result =  await deleteTask(getDeletedId).unwrap();
+     toast(result.message)
       onCancel(); 
     } catch (err) {
       console.error(`Task deletion failed: ${err}`);

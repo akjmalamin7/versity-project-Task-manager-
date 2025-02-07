@@ -19,23 +19,24 @@ export const authApi = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const result = await queryFulfilled;
-          console.log(result);
           localStorage.setItem(
             "auth",
             JSON.stringify({
               token: result?.data?.token,
-              user: result?.data?.data
+              user: result?.data?.data,
             })
           );
-          dispatch(userLoggedIn({
-            token: result?.data?.token,
-            user: result?.data?.data
-          }))
+          dispatch(
+            userLoggedIn({
+              token: result?.data?.token,
+              user: result?.data?.data,
+            })
+          );
         } catch (error) {
-          console.log(error);
+          console.log(error)
         }
       },
     }),
   }),
 });
-export const {useLoginMutation,useRegistrationMutation} = authApi
+export const { useLoginMutation, useRegistrationMutation } = authApi;
