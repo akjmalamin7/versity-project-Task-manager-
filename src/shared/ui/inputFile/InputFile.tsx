@@ -1,7 +1,6 @@
 import { ChangeEvent, FocusEvent, KeyboardEvent, forwardRef } from "react";
 import Text from "../text";
 
-// InputProps টাইপ গুলি এখানে রাখা হলো
 export interface InputProps {
   label?: string;
   name?: string;
@@ -17,7 +16,6 @@ export interface InputProps {
   onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
-  onClear?: () => void;
   onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 
@@ -37,7 +35,6 @@ const InputFile = forwardRef<HTMLInputElement, InputProps>(
       onInput,
       onBlur,
       onFocus,
-      onClear,
       onKeyDown,
     },
     ref
@@ -80,17 +77,7 @@ const InputFile = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             className={inputFinalClasses}
           />
-          {onClear && (
-            <button
-              type="button"
-              className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-[#74788D] hover:text-red-500"
-              onClick={onClear}
-            >
-              ✕
-            </button>
-          )}
         </div>
-        {isLoading && <p className="mt-2 text-sm text-gray-500">Loading...</p>}
       </div>
     );
   }

@@ -30,7 +30,7 @@ const AuthFrame = ({ formTitle, children }: AuthFrameProps) => {
     }
   };
   return (
-    <div className="flex w-full pt-[40px] items-center">
+    <div className="flex w-full pt-[40px] items-center bg-100">
       <div className="max-w-[448px] w-full mx-auto px-[20px]">
         {/* Logo */}
         <div>

@@ -105,7 +105,7 @@ const Profile = () => {
       <Card radius="sm">
         <Card.CardBody padding="lg">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-1 gap-y-[20px] md:gap-y-[50px] py-[20px] px-[16px]">
+            <div className="grid grid-cols-1  py-[20px] px-[16px]">
               {/* Profile Picture */}
               <div className="flex justify-center">
                 <div className="w-[150px] h-[150px] rounded-[5px] overflow-hidden">
@@ -119,7 +119,7 @@ const Profile = () => {
               </div>
 
               {/* File Upload */}
-              <div className="col-span-2">
+              <div className="col-span-2 mt-[30px] lg:mt-[50px] mb-[12px] lg:mb-[20px]">
                 <Controller
                   name="photo"
                   control={control}
@@ -181,8 +181,8 @@ const Profile = () => {
               </div>
 
               {/* Submit Button */}
-              <div className="col-span-2 flex justify-end">
-                <Button color="white" type="submit" className="cursor-pointer" disabled={isLoading}>
+              <div className="col-span-2 flex justify-end mt-[12px] lg:mt-[20px]">
+                <Button size="size-3"  color="white" type="submit" className="cursor-pointer" disabled={isLoading}>
                   {isLoading === true ? "Updating..." : " Update"}
                 </Button>
               </div>

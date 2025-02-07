@@ -6,8 +6,8 @@ const AnalyticsCard = ({_id,count}:TaskCount) => {
   return (
     <Card cardStyle="border">
       <Card.CardHeader padding="md">
-        <Text size="lg" element="h3" fontWeight="semiBold" color="white" className="mb-[10px]">{_id || ""}</Text>
-        <Text size="lg" element="h3" fontWeight="semiBold" color="white">{count || ""}</Text>
+        <Text size="xl" element="h2" fontWeight="semiBold"  textAlign="center" color="white" className="mb-[10px] capitalize" >{_id || ""}</Text>
+        <Text size="xl" element="h3" fontWeight="semiBold" textAlign="center"  color="white">{count || ""}</Text>
       </Card.CardHeader>
     </Card>
   );
