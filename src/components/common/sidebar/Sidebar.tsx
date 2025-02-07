@@ -11,7 +11,7 @@ const Sidebar = () => {
   }
   return (
     <div className="h-full">
-      <div className="px-[16px] h-[55px] lg:h-[63px] border-b lg:border-b-none border-b-gray-700 flex justify-end">  
+      <div className="px-[16px] h-[55px] lg:h-[63px] border-b lg:border-b-none border-b-gray-700 flex justify-end items-center">  
         <Button variant="text" onClick={handleHideSidebar} className="lg:hidden">
           <CrossIcon color="light" />
         </Button>
