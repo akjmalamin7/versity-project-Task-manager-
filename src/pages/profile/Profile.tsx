@@ -97,8 +97,8 @@ const Profile = () => {
     }
   };
 
-  if (getProfileLoading) return <Loader />;
-  if (error) return <Message />;
+  if (getProfileLoading) return <Loader type="full_width" />;
+  if (error) return <Message message="Not found" />;
 
   return (
     <Container width="sm">
