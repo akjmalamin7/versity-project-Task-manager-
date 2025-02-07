@@ -10,17 +10,18 @@ const InProgressTask = () => {
   const { data, error, isLoading } = useGetInProgressTaskQuery();
   const tasks = data?.data ?? [];
   let content = null;
+  let errorOrEmptyContent = null;
   if (isLoading) {
-    content = <Loader />;
+    errorOrEmptyContent = <Loader />;
   } else if (!isLoading && error) {
     const errorMessage =
       "data" in error && error.data && typeof error.data === "object"
         ? (error.data as { message?: string }).message || "Something went wrong"
         : "Something went wrong";
 
-    content = <Message message={errorMessage} />;
+    errorOrEmptyContent = <Message message={errorMessage} />;
   } else if (!isLoading && !error && tasks.length === 0) {
-    content = <Message message="No Task found" />;
+    errorOrEmptyContent = <Message message="No Task found" />;
   } else if (!isLoading && !error && tasks.length > 0) {
     content = tasks.map((task) => (
       <TaskCard
@@ -32,16 +33,20 @@ const InProgressTask = () => {
       />
     ));
   } else {
-    content = <Message message="No Task found" />;
+    errorOrEmptyContent = <Message message="No Task found" />;
   }
   return (
     <Container width="lg">
       <PageHeader title="Progress tasks" />
       <Card>
         <Card.CardBody padding="md">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-[20px] lg:gap-[25px] ">
-            {content}
-          </div>
+          {tasks?.length ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-[20px] lg:gap-[25px] ">
+              {content}
+            </div>
+          ) : (
+            <div className="py-[40px] relative">{errorOrEmptyContent}</div>
+          )}
         </Card.CardBody>
       </Card>
     </Container>

@@ -6,7 +6,7 @@ interface Props{
 const Message = ({message}:Props) => {
   return (
     <div>
-      <Text element="h3">{message}</Text>
+      <Text element="h3" color="white" size="2xl" textAlign="center">{message}</Text>
     </div>
   )
 }

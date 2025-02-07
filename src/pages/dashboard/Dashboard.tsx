@@ -11,6 +11,7 @@ const Dashboard = () => {
   const { data, error, isLoading } = useTaskCountQuery(undefined);
   const tasks = data?.data ?? [];
   let content = null;
+  let messageContent = null;
   if (isLoading) {
     content = <Loader />;
   } else if (!isLoading && error) {
@@ -19,22 +20,28 @@ const Dashboard = () => {
         ? (error.data as { message?: string }).message || "Something went wrong"
         : "Something went wrong";
 
-    content = <Message message={errorMessage} />;
+    messageContent = <Message message={errorMessage} />;
   } else if (!isLoading && !error && tasks.length === 0) {
-    content = <Message message="No Task found" />;
+    messageContent = <Message message="No Task found" />;
   } else if (!isLoading && !error && tasks.length > 0) {
     content = tasks.map((task: TaskCount) => (
       <AnalyticsCard key={task._id} count={task.count} _id={task._id || "new"} />
     ));
   } else {
-    content = <Message message="No Task found" />;
+    messageContent = <Message message="No Task found" />;
   }
   return (
     <Container width="md">
       <PageHeader title="Analytics" />
       <Card>
         <Card.CardBody padding="lg">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px] md:gap-[25px]">{content}</div>
+          {tasks?.length ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px] md:gap-[25px]">
+              {content}
+            </div>
+          ) : (
+            <div className="">{messageContent}</div>
+          )}
         </Card.CardBody>
       </Card>
     </Container>
