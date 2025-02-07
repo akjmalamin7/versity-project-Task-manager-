@@ -1,9 +1,12 @@
 
 const CanceledIcon = () => {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 3.5C6.41579 3.5 3.5 6.41579 3.5 10C3.5 13.5842 6.41579 16.5 10 16.5C13.5842 16.5 16.5 13.5842 16.5 10C16.5 6.41579 13.5842 3.5 10 3.5ZM12.1667 10.5417H7.83333C7.53433 10.5417 7.29167 10.299 7.29167 10C7.29167 9.701 7.53433 9.45833 7.83333 9.45833H12.1667C12.4657 9.45833 12.7083 9.701 12.7083 10C12.7083 10.299 12.4657 10.5417 12.1667 10.5417Z"      fill="#9ca3af"/>
-    </svg>
+<svg width="21" height="21" viewBox="0 0 21 21" fill="#9ca3af" xmlns="http://www.w3.org/2000/svg">
+<path fillRule="evenodd" clipRule="evenodd" d="M4.5 2.5H16.5C17.6046 2.5 18.5 3.39543 18.5 4.5V16.5C18.5 17.6046 17.6046 18.5 16.5 18.5H4.5C3.39543 18.5 2.5 17.6046 2.5 16.5V4.5C2.5 3.39543 3.39543 2.5 4.5 2.5Z" fill="#9ca3af" stroke="#9ca3af" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M2.5 6.5H18.5" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M13.5 12.5H7.5" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+
     
   )
 }
