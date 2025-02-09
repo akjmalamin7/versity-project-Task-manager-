@@ -97,6 +97,7 @@ const RegistrationForm = () => {
           <Input
             {...register("password")}
             className="border-[#D6D6D6]"
+            type="password"
             placeholder="Your Password"
           />
           {errors.password && (
