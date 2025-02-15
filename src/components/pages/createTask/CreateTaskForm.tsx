@@ -29,7 +29,7 @@ const CreateTaskForm = () => {
       const result = await createTask(data).unwrap();
       toast(result.message)
 
-      // reset();
+      reset();
     } catch (err) {
       console.error("Creating failed:", err);
     }
